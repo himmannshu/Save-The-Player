@@ -1,0 +1,9 @@
+#Directories
+Library
+Logs
+Packages
+Temp
+obj
+#Files with the extensions
+*.sln
+*.csproj
