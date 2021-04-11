@@ -11,7 +11,7 @@ public class CubeBehaviour : MonoBehaviour
     void Start()
     {
 
-        float randomNum = Random.Range(1, 3);
+        float randomNum = Random.Range(0.1f, 2f);
         transform.localScale = new Vector3(randomNum, randomNum, randomNum);
         transform.rotation = Quaternion.Euler(0, 0, Random.Range(-5, 5));
         /*      screenWidth = Camera.main.aspect * Camera.main.orthographicSize;

@@ -17,12 +17,14 @@ public class CubeSpawnner : MonoBehaviour
         if (Time.time - lastSpawned > 0.6)
             spawnCubes();
     }
+
+
     void spawnCubes()
     {
         //gameObject.transform.
         lastSpawned = Time.time;
         float screenWidth = Camera.main.aspect * Camera.main.orthographicSize;
-        Instantiate(cubePrefab, new Vector2(Random.Range(-screenWidth, screenWidth), Camera.main.orthographicSize), Quaternion.identity);
+        Instantiate(cubePrefab, new Vector2(Random.Range(-screenWidth, screenWidth), Camera.main.orthographicSize + 3), Quaternion.identity);
 
     }
 }

@@ -5,15 +5,31 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public event System.Action OnPlayerDeath;
     public float speed = 5;
+    Rigidbody2D body;
 
     void Start()
     {
-
+        body = GetComponent<Rigidbody2D>();
     }
 
 
     void Update()
+    {
+        move();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (OnPlayerDeath != null)
+        {
+            OnPlayerDeath();
+        }
+        Destroy(gameObject);
+    }
+
+    void move()
     {
         float x = Input.GetAxisRaw("Horizontal");
         Vector2 velocity = Vector2.right * x * speed;
@@ -35,6 +51,5 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector2(screenRight - transform.localScale.x / 2f, transform.position.y);
         }
-
     }
 }
